@@ -1,4 +1,10 @@
-<img src="./asset/logo.svg" height="200px" alt="Logo" style="display: block; margin-left: auto; margin-right: auto">
+<p align="center">    
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="./asset/logo-dark.svg" height="200px" alt="Logo">
+        <source media="(prefers-color-scheme: light)" srcset="./asset/logo.svg" height="200px" alt="Logo">
+        <img alt="Logo" src="./asset/logo.svg" height="200px">
+    </picture>
+</p>
 <h2 align="center">
 CSS Toolkit for combining css properties
 </h2>
