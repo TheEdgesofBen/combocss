@@ -1,41 +1,16 @@
 {
     "input": ["index.html", "src/**/*.{vue,js,ts,jsx,tsx}"],
-    "output": ["src/index.css"],
+    "output": "src/index.css",
+    "custom": ["custom.css"],
     "ignore": {
-        "prefix": ["pile-cards-", "fa ", "fa-", "we-", "leto-"],
+        "prefix": [],
         "suffix": [],
         "class": []
     },
-    "defaults": {
-        "breakpoints": {
-            "tablet": "600px",
-            "tabletAndPC": "1024px",
-            "pc": "1440px",
-            "ultrawide": "1921px"
-        }
-    },
-    "custom": {
-        "file": ["custom.css"],
-        "classes": {
-            "button": "padding-16px borderRadius-8px text-xl",
-            "mb-none": "marginBottom-none"
-        },
-        "shortcut": {
-            "bg": "background",
-            "bgc": "backgroundColor",
-            "bgi": "backgroundImage",
-            "w": "width",
-            "h": "height",
-            "m": "margin",
-            "mt": "marginTop",
-            "ml": "marginLeft",
-            "mr": "marginRight",
-            "mb": "marginBottom",
-            "pt": "paddingTop",
-            "pl": "paddingLeft",
-            "pr": "paddingRight",
-            "pb": "paddingBottom",
-            "z": "zIndex"
-        }
+    "breakpoints": {
+        "tablet": "600px",
+        "tabletAndPC": "1024px",
+        "pc": "1440px",
+        "ultrawide": "1921px"
     }
 }
