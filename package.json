@@ -1,6 +1,6 @@
 {
     "name": "combocss",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "PostCSS plugin for leto",
     "keywords": [
         "conbocss",
