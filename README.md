@@ -17,6 +17,29 @@ CSS Toolkit for combining CSS properties
 
 ComboCSS creates out of CSS classes property counterparts which can be combined into group classes called combos.
 
+### Config
+
+In combo.config.json you can upon other options change the scope of files combocss should scan for css classes with the property input. All generated ComboCSS classes will be written into the file specified in the property output. The default combo.config.json look like this.
+
+```json
+{
+    "input": ["index.html", "src/**/*.{vue,js,ts,jsx,tsx}"],
+    "output": "src/index.css",
+    "custom": ["custom.css"],
+    "ignore": {
+        "prefix": [],
+        "suffix": [],
+        "class": []
+    },
+    "breakpoints": {
+        "tablet": "600px",
+        "tabletAndPC": "1024px",
+        "pc": "1440px",
+        "ultrawide": "1921px"
+    }
+}
+```
+
 ### Counterpart Example
 
 The Toolkit scanes your code for CSS classes and generates property counterparts out of it for class not ignored or specified as combo class. CSS classes must be written in ComboCSS specific syntax.
@@ -61,7 +84,7 @@ A shortcut can be created for CSS classes and also be used in combos.
 
 ```CSS
 .ml {
-    @combo marginLeft;
+    @shortcut marginLeft;
 }
 
 .button-primary {
@@ -92,7 +115,7 @@ Values with spaces have to be seperated dashes.
 
 #### Value functions
 
-Values with function can also be created in ComboCSS only spaces like in calc() have to be replaces with underscore.
+Values with function can also be created in ComboCSS only spaces like in calc() have to be replaces with underscores.
 
 ```html
 <div name="kabap-case" style="backgroundColor: rgba(255,255,0,0.1); margin-left: calc(100% - 16px)"></div>
@@ -109,7 +132,7 @@ Coming 20XX
 
 Install ComboCSS postcss via npm.
 
-    npm install -D ComboCSS postcss
+    npm install -D combocss postcss
 
 ## Step 2
 

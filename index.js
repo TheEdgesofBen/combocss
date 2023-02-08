@@ -43,19 +43,17 @@ function init(opts) {
 
     initialized = true;
 
-    console.log("Init", new Date());
+    console.log("ComboCSS Init", new Date());
 
     process(config);
 
     watcher.on("change", () => {
-        console.log("Change", new Date());
+        console.log("ComboCSS change detected", new Date());
         process(config);
     });
 }
 
 module.exports = (opts = {}) => {
-    console.log("Plugin Call", new Date());
-
     if (!initialized) init(opts);
 
     return {
