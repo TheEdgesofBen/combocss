@@ -13,6 +13,20 @@ CSS Toolkit for combining css properties
 
 ### Currently it`s recommended to use ComboCSS only with Vite.<br>At this time ComboCSS is only available in a JIT mode.
 
+## How to use ComboCSS
+
+ComboCSS creates out of css classes property counterparts which can be combined into group classes.
+
+### Counterpart Example
+
+The Toolkit scanes your code for css classes generate property counterparts out of it.
+
+    <div class="backgroundColor-blue"></div>
+
+    .backgroundColor-blue {
+        background-color-blue
+    }
+
 ## Documentation
 
 Coming 20XX
