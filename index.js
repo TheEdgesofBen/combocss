@@ -17,6 +17,8 @@ TODOS:
 - Improve gathering classes from files &llow value function with "," and spaces [Check]
 - Possibility to add classes manuely in config [Check]
 
+- Loop combo error handling
+- ignore suffix not working
 - Comments & Refactoring
 - Error handling for syntax errors from css outfile file 
 
