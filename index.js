@@ -17,6 +17,9 @@ TODOS:
 - Improve gathering classes from files &llow value function with "," and spaces [Check]
 - Possibility to add classes manuely in config [Check]
 
+- Ignore dashes in value functions
+- Fix update output file (Class map + count)
+- Auto update by config & combo files changes
 - Loop combo error handling
 - ignore suffix not working
 - Comments & Refactoring
