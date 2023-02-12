@@ -17,11 +17,11 @@ TODOS:
 - Improve gathering classes from files &llow value function with "," and spaces [Check]
 - Possibility to add classes manuely in config [Check]
 
-- Ignore dashes in value functions
-- Fix update output file (Class map + count)
-- Auto update by config & combo files changes
-- Loop combo error handling
-- ignore suffix not working
+- Ignore dashes in value functions [Check]
+- Fix update output file (Class map + count) [Check]
+- Reload config by changes [Check]
+- Loop combo error handling [Check]
+- ignore suffix not working [Check]
 - Comments & Refactoring
 - Error handling for syntax errors from css outfile file 
 
@@ -54,6 +54,11 @@ function init(opts) {
 
     watcher.on("change", () => {
         console.log("ComboCSS change detected", new Date());
+
+        config = JSON.parse(fs.readFileSync("combo.config.json"));
+
+        if (!config) config = opts;
+
         process(config);
     });
 }
@@ -62,7 +67,7 @@ module.exports = (opts = {}) => {
     if (!initialized) init(opts);
 
     return {
-        postcssPlugin: "project-combo",
+        postcssPlugin: "combocss",
     };
 };
 
