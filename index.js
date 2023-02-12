@@ -30,7 +30,7 @@ TODOS:
 
 */
 
-const process = require("./lib/process");
+const comboProcess = require("./lib/process");
 const chokidar = require("chokidar");
 const fs = require("fs");
 
@@ -44,13 +44,15 @@ let config = JSON.parse(fs.readFileSync("combo.config.json"));
 function init(opts) {
     if (!config) config = opts;
 
-    const watcher = chokidar.watch(config.input);
-
     initialized = true;
 
     console.log("ComboCSS Init", new Date());
 
-    process(config);
+    comboProcess(config);
+
+    if (process.env.NODE_ENV === "production") return;
+
+    const watcher = chokidar.watch(config.input);
 
     watcher.on("change", () => {
         console.log("ComboCSS change detected", new Date());
@@ -59,7 +61,7 @@ function init(opts) {
 
         if (!config) config = opts;
 
-        process(config);
+        comboProcess(config);
     });
 }
 
