@@ -16,14 +16,18 @@ TODOS:
 - Important prefix "!" in classes [Check]
 - Improve gathering classes from files &llow value function with "," and spaces [Check]
 - Possibility to add classes manuely in config [Check]
-
 - Ignore dashes in value functions [Check]
 - Fix update output file (Class map + count) [Check]
 - Reload config by changes [Check]
 - Loop combo error handling [Check]
-- ignore suffix not working [Check]
+- Ignore suffix not working [Check]
+
+- Class order rethinking
+- Important not working
+- Breackpoint min-width instead max-width
 - Comments & Refactoring
 - Error handling for syntax errors from css outfile file 
+- Relead framework page in dev mode by combo changes
 
 - Custom values names??? 
 - Complex custom class builder with params???
