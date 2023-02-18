@@ -22,6 +22,9 @@ TODOS:
 - Loop combo error handling [Check]
 - Ignore suffix not working [Check]
 
+- Fix shortcuts with multiple dashes like bgc-(--var) or roundness-0-0-24px-24px
+- Fix shortcuts with negativ values like -mt-8px
+- Fix pseudo-element not working like intented
 - Class order rethinking
 - Important not working
 - Breackpoint min-width instead max-width
