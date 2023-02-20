@@ -25,7 +25,7 @@ TODOS:
 - Breackpoint min-width instead max-width [CHECK]
 - Fix shortcuts with multiple dashes like bgc-(--var) [CHECK]
 - Fix shortcuts with negativ values like -mt-8px [CHECK]
-- Class order rethinking
+- Class order rethinking [CHECK]
 
 - Fix pseudo-element not working like intented [Investing]
 
