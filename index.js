@@ -22,13 +22,17 @@ TODOS:
 - Loop combo error handling [Check]
 - Ignore suffix not working [Check]
 
-- Fix shortcuts with multiple dashes like bgc-(--var) or roundness-0-0-24px-24px
-- Fix shortcuts with negativ values like -mt-8px
-- Fix pseudo-element not working like intented
+- Breackpoint min-width instead max-width [CHECK]
+- Fix shortcuts with multiple dashes like bgc-(--var) [CHECK]
+- Fix shortcuts with negativ values like -mt-8px [CHECK]
 - Class order rethinking
+
+- Fix pseudo-element not working like intented [Investing]
+
+- Fix shortcuts with multiple dash values like roundness-0-0-24px-24px
 - Important not working
-- Breackpoint min-width instead max-width
 - Comments & Refactoring
+- Error handling combo uses unknown combo class
 - Error handling for syntax errors from css outfile file 
 - Relead framework page in dev mode by combo changes
 
