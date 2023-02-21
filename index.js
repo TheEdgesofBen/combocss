@@ -1,6 +1,7 @@
 /*
 TODOS:
 
+Released
 - Custom classes of custom classes [CHECK]
 - Support for special css values like hex color or functions like url() [CHECK]
 - Custom prop shortcuts [CHECK]
@@ -21,14 +22,22 @@ TODOS:
 - Reload config by changes [Check]
 - Loop combo error handling [Check]
 - Ignore suffix not working [Check]
-
 - Breackpoint min-width instead max-width [CHECK]
 - Fix shortcuts with multiple dashes like bgc-(--var) [CHECK]
 - Fix shortcuts with negativ values like -mt-8px [CHECK]
 - Class order rethinking [CHECK]
 
+Done
+
+Pending
 - Fix pseudo-element not working like intented [Investing]
 
+Next
+- MediaQuery always after normal classes
+- Fix escaping from classes in MediaQuery classes
+- Fix pseudo classes on shortcut and classes with value functions
+
+NiceToHave
 - Fix shortcuts with multiple dash values like roundness-0-0-24px-24px
 - Important not working
 - Comments & Refactoring
