@@ -37,6 +37,8 @@ Next
 - Fix escaping from classes in MediaQuery classes
 - Fix pseudo classes on shortcut and classes with value functions
 - Diasable camelToDash for css vars
+- Fix Escaping in selectors like :has
+- General tests & escaping tests
 
 NiceToHave
 - Fix shortcuts with multiple dash values like roundness-0-0-24px-24px
