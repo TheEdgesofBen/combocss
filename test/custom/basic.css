@@ -1,0 +1,123 @@
+.bg {
+    @shortcut background;
+}
+
+.bgc {
+    @shortcut backgroundColor;
+}
+
+.bgi {
+    @shortcut backgroundImage;
+}
+
+.w {
+    @shortcut width;
+}
+
+.min-w {
+    @shortcut minWidth;
+}
+
+.max-w {
+    @shortcut maxWidth;
+}
+
+.h {
+    @shortcut height;
+}
+
+.min-h {
+    @shortcut minHeight;
+}
+
+.max-h {
+    @shortcut maxHeight;
+}
+
+.p {
+    @shortcut padding;
+}
+
+.pt {
+    @shortcut paddingTop;
+}
+
+.pl {
+    @shortcut paddingLeft;
+}
+
+.pr {
+    @shortcut paddingRight;
+}
+
+.pb {
+    @shortcut paddingBottom;
+}
+
+.ph {
+    @shortcut paddingLeft paddingRight;
+}
+
+.pv {
+    @shortcut paddingTop paddingBottom;
+}
+
+.m {
+    @shortcut margin;
+}
+
+.mt {
+    @shortcut marginTop;
+}
+
+.ml {
+    @shortcut marginLeft;
+}
+
+.mb {
+    @shortcut marginBottom;
+}
+
+.mr {
+    @shortcut marginRight;
+}
+
+.mh {
+    @shortcut marginLeft marginRight;
+}
+
+.mv {
+    @shortcut marginTop marginBottom;
+}
+
+.z {
+    @shortcut zIndex;
+}
+
+.b {
+    @shortcut border;
+}
+
+.o {
+    @shortcut opacity;
+}
+
+.roundness {
+    @shortcut borderRadius;
+}
+
+.roundness-top {
+    @shortcut borderRadiusTopLeft borderRadiusTopRight;
+}
+
+.roundness-left {
+    @shortcut borderRadiusTopLeft borderRadiusBottomLeft;
+}
+
+.roundness-right {
+    @shortcut borderRadiusTopRight borderRadiusBottomRight;
+}
+
+.roundness-bottom {
+    @shortcut borderRadiusBottomLeft borderRadiusBottomRight;
+}

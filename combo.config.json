@@ -1,0 +1,16 @@
+{
+    "input": ["./test/index.html", "./test/src/**/*.{vue,js,ts,jsx,tsx}"],
+    "output": ["./test/index.css"],
+    "ignore": {
+        "prefix": ["pile-cards-", "fa ", "fa-", "we-", "leto-"],
+        "suffix": [],
+        "class": []
+    },
+    "breakpoints": {
+        "tablet": "600px",
+        "tabletAndPC": "1024px",
+        "pc": "1440px",
+        "ultrawide": "1921px"
+    },
+    "custom": ["./test/custom/*"]
+}

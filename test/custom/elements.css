@@ -1,0 +1,319 @@
+.c-app-bg {
+    @combo opacity-1 bg-var(--appBg-bg);
+}
+
+.c-pile {
+    @combo position-relative bg-var(--pile-bg) border-2px-solid-var(--pile-borderColor) color-var(--pile-color) borderRadius-12px  m-8px;
+}
+
+.c-function-menu {
+    @combo bg-var(--functionMenu-bg) border-2px-solid-var(--functionMenu-borderColor) color-var(--functionMenu-color) roundness-16px;
+}
+
+.c-search {
+    @combo flex h-48px alignItems-center bg-var(--search-bg) border-2px-solid-var(--search-borderColor) color-var(--search-color) roundness-1000px;
+}
+
+.c-search-results {
+    @combo position-relative w-100% max-w-898px bg-var(--searchResults-bg) color-var(--searchResults-color) borderTopWidth-0 borderLeftWidth-2px borderRightWidth-2px borderBottomWidth-2px borderStyle-solid borderColor-var(--searchResults-borderColor) -mt-14px -ml-22px mb-16px roundness-0-0-24px-24px overflow-hidden;
+}
+
+.c-search-results:hover {
+    @combo bg-var(--searchResultsHover-bg) border-2px-solid-var(--searchResultsHover-borderColor) color-var(--searchResultsHover-color);
+}
+
+.c-list {
+    @combo width-100% bg-var(--list-bg) border-2px-solid-var(--list-borderColor) color-var(--list-color) borderRadius-16px overflow-hidden;
+}
+
+.c-list-header-cell {
+    @combo bg-var(--listHeaderCell-bg) border-2px-solid-var(--listeHeaderCell-borderColor) color-var(--listHeaderCell-color) fontWeight-600 m-0 pb-0 whiteSpace-nowrap overflow-hidden textOverflow-ellipsis;
+}
+
+.c-list-second-cell {
+    @combo bg-var(--listSecondCell-bg) border-2px-solid-var(--listSecondCell-borderColor) color-var(--listSecondCell-color);
+}
+
+.c-card {
+    @combo min-h-48px m-8px p-8px flex flexDirection-column bg-var(--card-bg) border-2px-solid-var(--card-borderColor) color-var(--card-color) roundness-16px;
+}
+
+.c-card-alt {
+    @combo min-h-48px m-8px p-8px flex flexDirection-column bg-var(--cardAlt-bg) border-2px-solid-var(--cardAlt-borderColor) color-var(--cardAlt-color) roundness-16px;
+}
+
+.c-card-unfolded {
+    @combo width-100% bg-var(--cardUnfolded-bg) border-2px-solid-var(--cardUnfolded-borderColor) color-var(--cardUnfolded-color) borderRadius-16px p-12px;
+}
+
+.c-button {
+    @combo min-w-96px h-32px inline-flex justifyContent-center alignItems-center m-8px pv-4px ph-8px roundness-1000px whiteSpace-nowrap click;
+}
+
+.c-button-primary {
+    @combo c-button bg-var(--buttonPrimary-bg) border-2px-solid-var(--buttonPrimary-borderColor) color-var(--buttonPrimary-color);
+}
+
+.c-button-primary-alt {
+    @combo c-button bg-var(--buttonPrimaryAlt-bg) border-2px-solid-var(--buttonPrimaryAlt-borderColor) color-var(--buttonPrimaryAlt-color);
+}
+
+.c-button-secondary {
+    @combo c-button bg-var(--buttonSecondary-bg) border-2px-solid-var(--buttonSecondary-borderColor) color-var(--buttonSecondary-color);
+}
+
+.c-button-secondary-alt {
+    @combo c-button bg-var(--buttonSecondaryAlt-bg) border-2px-solid-var(--buttonSecondaryAlt-borderColor) color-var(--buttonSecondaryAlt-color);
+}
+
+.c-button-neutral {
+    @combo c-button bg-var(--buttonNeutral-bg) border-2px-solid-var(--buttonNeutral-borderColor)  color-var(--buttonNeutral-color);
+}
+
+.c-button-neutral-alt {
+    @combo c-button bg-var(--buttonNeutralAlt-bg) border-2px-solid-var(--buttonNeutralAlt-borderColor) color-var(--buttonNeutralAlt-color);
+}
+
+.c-button-success {
+    @combo c-button bg-var(--buttonSuccess-bg) border-2px-solid-var(--buttonSuccess-borderColor)  color-var(--buttonSuccess-color);
+}
+
+.c-button-success-alt {
+    @combo c-button bg-var(--buttonSuccessAlt-bg) border-2px-solid-var(--buttonSuccessAlt-borderColor) color-var(--buttonSuccessAlt-color);
+}
+
+.c-button-warning {
+    @combo c-button bg-var(--buttonWarning-bg) border-2px-solid-var(--buttonWarning-borderColor)  color-var(--buttonWarning-color);
+}
+
+.c-button-warning-alt {
+    @combo c-button bg-var(--buttonWaringAlt-bg) border-2px-solid-var(--buttonWarningAlt-borderColor) color-var(--buttonWaringAlt-color);
+}
+
+.c-button-error {
+    @combo c-button bg-var(--buttonError-bg) border-2px-solid-var(--buttonError-borderColor)  color-var(--buttonError-color);
+}
+
+.c-button-error-alt {
+    @combo c-button bg-var(--buttonErrorAlt-bg) border-2px-solid-var(--buttonErrorAlt-borderColor) color-var(--buttonErrorAlt-color);
+}
+
+.c-button-disabled {
+    @combo c-button bg-var(--buttonDisabled-bg) border-2px-solid-var(--buttonDisabled-borderColor)  color-var(--buttonDisabled-color) cursor-initial;
+}
+
+.c-button-disabled-alt {
+    @combo c-button bg-var(--buttonDisabledAlt-bg) border-2px-solid-var(--buttonDisabledAlt-borderColor) color-var(--buttonDisabledAlt-color) cursor-initial;
+}
+
+.c-bubble {
+    @combo w-16px h-16px flex alignItems-center justifyContent-center roundness-100% m-8px p-8px;
+}
+
+.c-bubble-primary {
+    @combo c-bubble bg-var(--bubblePrimary-bg) border-2px-solid-var(--bubblePrimary-borderColor)  color-var(--bubblePrimary-color);
+}
+
+.c-bubble-primary-alt {
+    @combo c-bubble bg-var(--bubblePrimaryAlt-bg) border-2px-solid-var(--bubblePrimaryAlt-borderColor) color-var(--bubblePrimaryAlt-color);
+}
+
+.c-bubble-secondary {
+    @combo c-bubble bg-var(--bubbleSecondary-bg) border-2px-solid-var(--bubbleSecondary-borderColor) color-var(--bubbleSecondary-color);
+}
+
+.c-bubble-secondary-alt {
+    @combo c-bubble bg-var(--bubbleSecondaryAlt-bg) border-2px-solid-var(--bubbleSecondaryAlt-borderColor) color-var(--bubbleSecondaryAlt-color);
+}
+
+.c-bubble-neutral {
+    @combo c-bubble bg-var(--bubbleNeutral-bg) border-2px-solid-var(--bubbleNeutral-borderColor) color-var(--bubblePrimary-color);
+}
+
+.c-bubble-neutral-alt {
+    @combo c-bubble bg-var(--bubbleNeutralAlt-bg) border-2px-solid-var(--bubbleNeutralAlt-borderColor) border-2px-solid-var(--bubbleNeutralAlt-borderColor) color-var(--bubbleNeutralAlt-color);
+}
+
+.c-bubble-success {
+    @combo c-bubble bg-var(--bubbleSuccess-bg) border-2px-solid-var(--bubbleSuccess-borderColor) color-var(--bubbleSuccess-color);
+}
+
+.c-bubble-success-alt {
+    @combo c-bubble bg-var(--bubbleSuccessAlt-bg) border-2px-solid-var(--bubbleSuccessAlt-borderColor)  color-var(--bubbleSuccessAlt-color);
+}
+
+.c-bubble-warning {
+    @combo c-bubble bg-var(--bubbleWarning-bg) border-2px-solid-var(--bubbleWarning-borderColor) color-var(--bubbleWarning-color);
+}
+
+.c-bubble-warning-alt {
+    @combo c-bubble bg-var(--bubbleWarningyAlt-bg) border-2px-solid-var(--bubbleWarningAlt-borderColor)  color-var(--bubbleWarningyAlt-color);
+}
+
+.c-bubble-error {
+    @combo c-bubble bg-var(--bubbleError-bg) border-2px-solid-var(--bubbleError-borderColor) color-var(--bubbleError-color);
+}
+
+.c-bubble-error-alt {
+    @combo c-bubble bg-var(--bubbleErrorAlt-bg) border-2px-solid-var(--bubbleErrorAlt-borderColor)  color-var(--bubbleErrorAlt-color);
+}
+
+.c-badge {
+    @combo min-h-16px min-w-64px fontSize-14px flex alignItems-center justifyContent-center roundness-1000px m-8px ph-8px pv-4px;
+}
+
+.c-badge-primary {
+    @combo c-badge bg-var(--badgePrimary-bg) border-2px-solid-var(--badgePrimary-borderColor) color-var(--badgePrimary-color);
+}
+
+.c-badge-primary-alt {
+    @combo c-badge bg-var(--badgePrimaryAlt-bg) border-2px-solid-var(--badgePrimaryAlt-borderColor) color-var(--badgePrimaryAlt-color);
+}
+
+.c-badge-secondary {
+    @combo c-badge bg-var(--badgeSecondary-bg) border-2px-solid-var(--badgeSecondary-borderColor) color-var(--badgeSecondary-color);
+}
+
+.c-badge-secondary-alt {
+    @combo c-badge bg-var(--badgeSecondaryAlt-bg) border-2px-solid-var(--badgeSecondaryAlt-borderColor) color-var(--badgeSecondaryAlt-color);
+}
+
+.c-badge-neutral {
+    @combo c-badge bg-var(--badgeNeutral-bg) border-2px-solid-var(--badgeNeutral-borderColor) color-var(--badgeNeutral-color);
+}
+
+.c-badge-neutral-alt {
+    @combo c-badge bg-var(--badgeNeutralAlt-bg) border-2px-solid-var(--badgeNeutralAlt-borderColor) color-var(--badgeNeutralAlt-color);
+}
+
+.c-badge-menu {
+    @combo h-48px click flex alignItems-center bg-var(--badgeMenu-bg) border-2px-solid-var(--badgeMenu-borderColor) color-var(--badgeMenu-color) roundness-24px p-8px;
+}
+
+.c-input-embedded-wrapper {
+    @combo position-relative min-w-120px width-auto flex flexDirection-column mh-8px mv-8px;
+}
+
+.c-input-embedded-left:before {
+    @combo content-"" flex width-14px height-100% borderTopLeftRadius-12px borderBottomLeftRadius-12px borderTop-2px-solid-var(--inputEmbedded-borderColor) borderBottom-2px-solid-var(--inputEmbedded-borderColor) borderLeft-2px-solid-var(--inputEmbedded-borderColor) color-var(--inputEmbedded-color);
+}
+
+.c-input-embedded-right:after {
+    @combo content-"" flex-8 min-w-14px height-100% borderTopRightRadius-12px borderBottomRightRadius-12px borderRight-2px-solid-var(--inputEmbedded-borderColor) borderTop-2px-solid-var(--inputEmbedded-borderColor) borderBottom-2px-solid-var(--inputEmbedded-borderColor) color-var(--inputEmbedded-color);
+}
+
+.c-input-embedded-label {
+    @combo position-absolute flex fontSize-14px fontWeight-600 top-0 left-0 right-0 bottom-0;
+}
+
+.c-input-embedded-label-text {
+    @combo -mt-10px padding-0-8px bg-var(--inputEmbedded-bg) borderBottom-2px-solid-var(--inputEmbedded-borderColor) borderBottom-2px-solid-var(--inputEmbedded-borderColor) color-var(--inputEmbedded-color);
+}
+
+.c-input-embedded {
+    @combo c-input bgc-transparent borderWidth-0 m-0 pl-24px z-1;
+}
+
+.c-input {
+    @combo h-48px fontSize-16px color-var(--text-color) m-8px padding-0-16px border-2px-solid-transparent roundness-12px outlineWidth-0 outlineStyle-none outlineColor-transparent boxShadow-none bg-transparent;
+}
+
+.c-input-disabled {
+    @combo bg-var(--inputDisabled-bg) border-2px-solid-var(--inputDisabled-borderColor) color-var(--inputDisabled-color) pointerEvent-none;
+}
+
+.c-toast {
+    @combo animation-popInPopOut-4s-easeInOut position-absolute flex min-w-200px w-100% min-h-50px max-h-100px top-20px left-0 ml-0 p-8px roundness-16px alignItems-center justifyContent-center opacity-0 -z-1;
+}
+
+.c-toast-info {
+    @combo c-toast bg-var(--toastInfo-bg) border-2px-solid-var(--toastInfo-borderColor) color-var(--toastInfo-color);
+}
+
+.c-toast-success {
+    @combo c-toast bg-var(--toastSuccess-bg) border-2px-solid-var(--toastSuccess-borderColor) color-var(--toastSuccess-color);
+}
+
+.c-toast-warning {
+    @combo c-toast bg-var(--toastWarning-bg) border-2px-solid-var(--toastWarning-borderColor) color-var(--toastWarning-color);
+}
+
+.c-toast-error {
+    @combo c-toast bg-var(--toastError-bg) border-2px-solid-var(--toastError-borderColor) color-var(--toastError-color);
+}
+
+.c-text {
+    @combo bg-var(--text-bg) border-2px-solid-var(--text-borderColor) color-var(--text-color);
+}
+
+.c-text-highlight {
+    @combo bg-var(--textHighlight-bg) border-2px-solid-var(--textHighlight-borderColor) color-var(--textHighlight-color);
+}
+
+.c-text-lowlight {
+    @combo bg-var(--textLowlight-bg) border-2px-solid-var(--textLowlight-borderColor) color-var(--textLowlight-color);
+}
+
+.c-kpi {
+    @combo min-w-100px max-w-200px h-100px bg-var(--kpi-bg) border-2px-solid-var(--kpi-borderColor) color-var(--kpi-color) fontWeight-600 flex column alignItems-center m-8px roundness-16px whiteSpace-nowrap textOverflow-ellipsis;
+}
+
+.c-modal-wrapper {
+    @combo position-fixed bgc-rgba(0,0,0,0.2) width-100% height-100% top-0 left-0 z-10 flex justifyContent-center alignItems-center;
+}
+
+.c-modal {
+    @combo position-relative bg-var(--modal-bg) border-2px-solid-var(--modal-borderColor) color-var(--modal-color) p-16px roundness-16px;
+}
+
+.c-kanban-column {
+    @combo position-relative w-256px max-h-100% bg-var(--kanbanColumn-bg) border-2px-solid-var(--kanbanColumn-borderColor) color-var(--kanbanColumn-color) roundness-16px innline-flex column m-8px p-8px;
+}
+
+.c-dropdown {
+    @combo min-w-100% position-absolute bg-var(--dropdown-bg) border-2px-solid-var(--dropdown-borderColor) color-var(--dropdown-color) roundness-8px flex column mt-4px;
+}
+
+.c-dropdown-element {
+    @combo bg-var(--dropdownElement-bg) border-2px-solid-var(--dropdownElement-borderColor) color-var(--dropdownElement-color) pv-8px ph-12px click;
+}
+
+.c-dropdown-element:hover {
+    @combo bg-var(--dropdownElementHover-bg) border-2px-solid-var(--dropdownElementHover-borderColor) color-var(--dropdownElementHover-color);
+}
+
+.c-tab {
+    @combo fontSize-20px bg-var(--tab-bg) border-2px-solid-var(--tab-borderColor) color-var(--tab-color) click;
+}
+
+.c-tab:hover {
+    @combo bg-var(--tabHover-bg) border-2px-solid-var(--tabHover-borderColor) color-var(--tabHover-color);
+}
+
+.c-checkbox {
+    @combo w-24px h-24px click bg-var(--checkbox-bg) border-2px-solid-var(--checkbox-borderColor) color-var(--checkbox-color) roundness-4px;
+}
+
+.c-checkbox-selected {
+    @combo bg-var(--checkboxSelected-bg) border-2px-solid-var(--checkboxSelected-borderColor) color-var(--checkboxSelected-color);
+}
+
+.c-radio {
+    @combo w-24px h-24px click bg-var(--checkbox-bg) border-2px-solid-var(--checkbox-borderColor) color-var(--checkbox-color) roundness-100% p-2px;
+}
+
+.c-radio-selected {
+    @combo bg-var(--checkboxSelected-bg) border-2px-solid-var(--checkboxSelected-borderColor) color-var(--checkboxSelected-color);
+}
+
+.c-radio-dot-selected {
+    @combo bg-var(--checkboxSelected-bg) border-2px-solid-var(--checkboxSelected-borderColor) color-var(--checkboxSelected-color) roundness-100%;
+}
+
+.c-calendar-tile {
+    @combo @combo bg-var(--calendarTile-bg) border-2px-solid-var(--calendarTile-borderColor) color-var(--calendarTile-color) fontSize-14px overflow-hidden;
+}
+
+.c-calendar-tile:hover {
+    @combo @combo bg-var(--calendarTileHover-bg) border-2px-solid-var(--calendarTileHover-borderColor) color-var(--calendarTileHover-color);
+}

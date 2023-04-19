@@ -38,11 +38,11 @@ Next
 - Fix pseudo classes on shortcut and classes with value functions
 - Diasable camelToDash for css vars
 - Fix Escaping in selectors like :has
+- Fix shortcuts with multiple dash values like roundness-0-0-24px-24px
+- Important not working
 - General tests & escaping tests
 
 NiceToHave
-- Fix shortcuts with multiple dash values like roundness-0-0-24px-24px
-- Important not working
 - Comments & Refactoring
 - Error handling combo uses unknown combo class
 - Error handling for syntax errors from css outfile file 

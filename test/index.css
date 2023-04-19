@@ -1,0 +1,29 @@
+@layer \.\/test\/custom\/basic\.css, \.\/test\/custom\/colors\.css, \.\/test\/custom\/custom\.css, \.\/test\/custom\/elements\.css;
+@media (min-width: 600px) {
+    .tablet\:height-32px {
+        height: 32px
+    }
+}
+.backgroundColor-var\(--test-2\) {
+    background-color: var(--test-2)
+}
+@media (min-width: 1440px) {
+    .pc\:backgroundColor-var\(--test\) {
+        background-color: var(--test)
+    }
+}
+.backgroundColor-var\(--test-2\)\:hover:hover {
+    background-color: var(--test-2)
+}
+.roundness-32px\:hover:hover {
+    border-radius: 32px
+}
+.backgroundColor-var\(--testTest\) {
+    background-color: var(--test-test)
+}
+.backgroundColor-red\:has\(\.test\):has(.test) {
+    background-color: red
+}
+.roundness-0-0-24px-24px {
+    border-radius: 24px
+}
