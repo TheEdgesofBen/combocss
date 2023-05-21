@@ -26,26 +26,27 @@ Released
 - Fix shortcuts with multiple dashes like bgc-(--var) [CHECK]
 - Fix shortcuts with negativ values like -mt-8px [CHECK]
 - Class order rethinking [CHECK]
+- Fix escaping from classes in MediaQuery classes [CHECK]
+- Fix pseudo classes on shortcut and classes with value functions [CHECK]
+- Diasable camelToDash for css vars [CHECK]
+- General tests & escaping tests [CHECK]
+- Fix shortcuts with multiple dash values like roundness-0-0-24px-24px [CHECK]
+- Important not working [CHECK]
 
 Done
 
 Pending
 - Fix pseudo-element not working like intented [Investing]
+- Fix Escaping in selectors like :has [Investing]
 
 Next
-- MediaQuery always after normal classes
-- Fix escaping from classes in MediaQuery classes
-- Fix pseudo classes on shortcut and classes with value functions
-- Diasable camelToDash for css vars
-- Fix Escaping in selectors like :has
-- Fix shortcuts with multiple dash values like roundness-0-0-24px-24px
-- Important not working
-- General tests & escaping tests
 
-NiceToHave
+- MediaQuery always after normal classes
 - Comments & Refactoring
 - Error handling combo uses unknown combo class
-- Error handling for syntax errors from css outfile file 
+- Error handling for syntax errors from css outfile file
+
+NiceToHave
 - Relead framework page in dev mode by combo changes
 
 - Custom values names??? 

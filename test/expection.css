@@ -25,19 +25,5 @@
     background-color: red
 }
 .roundness-0-0-24px-24px {
-    border-radius: 0 0 24px 24px
-}
-.\!height-24px {
-    height: 24px !important
-}
-.\!w-calc\(100\%_-_8px\) {
-    width: calc(100% - 8px) !important
-}
-@media (min-width: 1440px) {
-    .pc\:p-8px {
-        padding: 8px
-    }
-}
-.p-8px {
-    padding: 8px
+    border-radius: 24px
 }
