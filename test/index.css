@@ -1,16 +1,6 @@
 @layer \.\/test\/custom\/basic\.css, \.\/test\/custom\/colors\.css, \.\/test\/custom\/custom\.css, \.\/test\/custom\/elements\.css;
-@media (min-width: 600px) {
-    .tablet\:height-32px {
-        height: 32px
-    }
-}
 .backgroundColor-var\(--test-2\) {
     background-color: var(--test-2)
-}
-@media (min-width: 1440px) {
-    .pc\:backgroundColor-var\(--test\) {
-        background-color: var(--test)
-    }
 }
 .backgroundColor-var\(--test-2\)\:hover:hover {
     background-color: var(--test-2)
@@ -33,11 +23,21 @@
 .\!w-calc\(100\%_-_8px\) {
     width: calc(100% - 8px) !important
 }
+.p-8px {
+    padding: 8px
+}
+@media (min-width: 1440px) {
+    .pc\:backgroundColor-var\(--test\) {
+        background-color: var(--test)
+    }
+}
+@media (min-width: 600px) {
+    .tablet\:height-32px {
+        height: 32px
+    }
+}
 @media (min-width: 1440px) {
     .pc\:p-8px {
         padding: 8px
     }
-}
-.p-8px {
-    padding: 8px
 }

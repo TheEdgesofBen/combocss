@@ -32,6 +32,7 @@ Released
 - General tests & escaping tests [CHECK]
 - Fix shortcuts with multiple dash values like roundness-0-0-24px-24px [CHECK]
 - Important not working [CHECK]
+- MediaQuery always after normal classes [CHECK]
 
 Done
 
@@ -41,7 +42,6 @@ Pending
 
 Next
 
-- MediaQuery always after normal classes
 - Comments & Refactoring
 - Error handling combo uses unknown combo class
 - Error handling for syntax errors from css outfile file
