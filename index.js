@@ -41,7 +41,6 @@ Pending
 - Fix Escaping in selectors like :has [Investing]
 
 Next
-
 - Comments & Refactoring
 - Error handling combo uses unknown combo class
 - Error handling for syntax errors from css outfile file
