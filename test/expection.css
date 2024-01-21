@@ -1,29 +1,43 @@
 @layer \.\/test\/custom\/basic\.css, \.\/test\/custom\/colors\.css, \.\/test\/custom\/custom\.css, \.\/test\/custom\/elements\.css;
-@media (min-width: 600px) {
-    .tablet\:height-32px {
-        height: 32px
-    }
-}
 .backgroundColor-var\(--test-2\) {
-    background-color: var(--test-2)
+    background-color: var(--test-2);
+}
+.backgroundColor-var\(--test-2\)\:hover:hover {
+    background-color: var(--test-2);
+}
+.roundness-32px\:hover:hover {
+    border-radius: 32px;
+}
+.backgroundColor-var\(--testTest\) {
+    background-color: var(--testTest);
+}
+.backgroundColor-red\:has\(\.test\):has(.test) {
+    background-color: red;
+}
+.roundness-0-0-24px-24px {
+    border-radius: 0 0 24px 24px;
+}
+.\!height-24px {
+    height: 24px !important;
+}
+.\!w-calc\(100\%_-_8px\) {
+    width: calc(100% - 8px) !important;
+}
+.p-8px {
+    padding: 8px;
 }
 @media (min-width: 1440px) {
     .pc\:backgroundColor-var\(--test\) {
-        background-color: var(--test)
+        background-color: var(--test);
     }
 }
-.backgroundColor-var\(--test-2\)\:hover:hover {
-    background-color: var(--test-2)
+@media (min-width: 600px) {
+    .tablet\:height-32px {
+        height: 32px;
+    }
 }
-.roundness-32px\:hover:hover {
-    border-radius: 32px
-}
-.backgroundColor-var\(--testTest\) {
-    background-color: var(--testTest)
-}
-.backgroundColor-red\:has\(\.test\):has(.test) {
-    background-color: red
-}
-.roundness-0-0-24px-24px {
-    border-radius: 24px
+@media (min-width: 1440px) {
+    .pc\:p-8px {
+        padding: 8px;
+    }
 }
