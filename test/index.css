@@ -27,8 +27,8 @@
     padding: 8px
 }
 @media (min-width: 1440px) {
-    .pc\:backgroundColor-var\(--test\) {
-        background-color: var(--test)
+    .pc\:p-8px {
+        padding: 8px
     }
 }
 @media (min-width: 600px) {
@@ -37,7 +37,7 @@
     }
 }
 @media (min-width: 1440px) {
-    .pc\:p-8px {
-        padding: 8px
+    .pc\:backgroundColor-var\(--test\) {
+        background-color: var(--test)
     }
 }

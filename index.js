@@ -71,7 +71,7 @@ function init(opts) {
 
     console.log("ComboCSS Init", new Date());
 
-    comboProcess(config);
+    comboProcess(config, "pluginInit");
 
     if (process.env.NODE_ENV === "production") return;
 
