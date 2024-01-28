@@ -5,7 +5,7 @@ const standalone = require("./lib/standalone");
 const plugin = require("./lib/plugin");
 
 async function runStandalone() {
-    let standaloneOutput = standalone(["marginLeft-24px"]);
+    let standaloneOutput = await standalone(["marginLeft-24px"]);
     let testResult = `    
     .marginLeft-24px {
         margin-left: 24px
@@ -21,9 +21,7 @@ async function runStandalone() {
 }
 
 async function runPlugin(output, opts = {}) {
-    await postcss([plugin(opts)]).process("", {
-        from: undefined,
-    });
+    await plugin(opts);
 
     let res = await fs.readFileSync("./test/index.css", "utf-8");
 
