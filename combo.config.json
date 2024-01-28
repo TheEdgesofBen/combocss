@@ -1,5 +1,5 @@
 {
-    "input": ["./test/index.html", "./test/src/**/*.{vue,js,ts,jsx,tsx}"],
+    "input": ["./test/index.html", "./test/App.vue", "./test/src/**/*.{vue,js,ts,jsx,tsx}"],
     "output": "./test/index.css",
     "ignore": {
         "prefix": ["pile-cards-", "fa ", "fa-", "we-", "leto-"],

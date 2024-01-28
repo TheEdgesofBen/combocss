@@ -53,47 +53,9 @@ NiceToHave
 
 */
 
-const comboProcess = require("./lib/process");
-const chokidar = require("chokidar");
-const fs = require("fs");
+const standalone = require("./lib/standalone");
+const plugin = require("./lib/plugin");
 
-let initialized = false;
-let config = JSON.parse(fs.readFileSync("combo.config.json"));
+module.exports = standalone;
 
-/**
- * @type {import('postcss').PluginCreator}
- */
-
-function init(opts) {
-    if (!config) config = opts;
-
-    initialized = true;
-
-    console.log("ComboCSS Init", new Date());
-
-    comboProcess(config, "pluginInit");
-
-    if (process.env.NODE_ENV === "production") return;
-
-    const watcher = chokidar.watch(config.input);
-
-    watcher.on("change", () => {
-        console.log("ComboCSS change detected", new Date());
-
-        config = JSON.parse(fs.readFileSync("combo.config.json"));
-
-        if (!config) config = opts;
-
-        comboProcess(config);
-    });
-}
-
-module.exports = (opts = {}) => {
-    if (!initialized) init(opts);
-
-    return {
-        postcssPlugin: "combocss",
-    };
-};
-
-module.exports.postcss = true;
+module.exports.plugin = plugin;
