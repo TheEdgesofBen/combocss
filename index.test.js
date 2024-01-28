@@ -1,8 +1,8 @@
 const postcss = require("postcss");
 const fs = require("fs");
 
-const standalone = require("./lib/standalone");
-const plugin = require("./lib/plugin");
+const standalone = require("./index.js");
+const { plugin } = require("./index.js");
 
 async function runStandalone() {
     let standaloneOutput = await standalone(["marginLeft-24px"]);

@@ -11,34 +11,9 @@ CSS Toolkit for combining CSS properties
 
 ---
 
-### Currently it`s recommended to use ComboCSS only with Vite.<br>At this time ComboCSS is only available in a JIT mode.
-
-## How to use ComboCSS
+### Currently it`s recommended to use ComboCSS only with Vite.
 
 ComboCSS creates out of CSS classes property counterparts which can be combined into group classes called combos.
-
-### Config
-
-In combo.config.json you can upon other options change the scope of files combocss should scan for css classes with the property input. All generated ComboCSS classes will be written into the file specified in the property output. The default combo.config.json look like this.
-
-```json
-{
-    "input": ["index.html", "src/**/*.{vue,js,ts,jsx,tsx}"],
-    "output": "src/index.css",
-    "custom": ["custom.css"],
-    "ignore": {
-        "prefix": [],
-        "suffix": [],
-        "class": []
-    },
-    "breakpoints": {
-        "tablet": "600px",
-        "tabletAndPC": "1024px",
-        "pc": "1440px",
-        "ultrawide": "1921px"
-    }
-}
-```
 
 ### Counterpart Example
 
@@ -140,14 +115,66 @@ Initialize ComboCSS with npx to create combo.config.json.
 
     npx combo init
 
-## Step 3
+# How to use ComboCSS
+
+## Modes
+
+### Standalone Mode
+
+You can use ComboCSS via import.<br>combocss(classes, opts) has two params and returns translated css as string.<br>Param one must be a Array of combo css classes<br>Param two is an optional config object [See Config](#config)
+
+```js
+import combocss from "combocss";
+
+let res = await combocss(["marginLeft-8px"]);
+
+/* 
+    .marginLeft-8px {
+        margin-left: 8px
+    }
+*/
+console.log(res);
+```
+
+### JIT Mode
 
 Add ComboCSS to your postcss.config.js or any other postcss configuration.
 
 ```js
-module.exports = {
-    plugins: {
-        combocss: {},
-    },
+import { plugin } from "combocss";
+
+export default {
+    plugins: [plugin()],
 };
+```
+
+### CLI Mode
+
+Via the command process you can use ComboCSS too.<br>Currently process uses the config file.<br>Meaning the command scans all files targeted via the input property and writes the finished css into the file declared in the output property.
+
+    npx combo process
+
+<a name="config"></a>
+
+### Config
+
+In combo.config.json you can upon other options change the scope of files combocss should scan for css classes with the property input. All generated ComboCSS classes will be written into the file specified in the property output. The default combo.config.json look like this.
+
+```json
+{
+    "input": ["index.html", "src/**/*.{vue,js,ts,jsx,tsx}"],
+    "output": "src/index.css",
+    "custom": ["custom.css"],
+    "ignore": {
+        "prefix": [],
+        "suffix": [],
+        "class": []
+    },
+    "breakpoints": {
+        "tablet": "600px",
+        "tabletAndPC": "1024px",
+        "pc": "1440px",
+        "ultrawide": "1921px"
+    }
+}
 ```

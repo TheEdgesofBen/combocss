@@ -1,7 +1,7 @@
 {
     "name": "combocss",
-    "version": "0.1.1",
-    "description": "PostCSS plugin for leto",
+    "version": "0.5.0",
+    "description": "ComboCSS a CSS Toolkit for combining CSS properties",
     "keywords": [
         "conbocss",
         "postcss",
@@ -59,14 +59,15 @@
         "chokidar": "^3.5.3",
         "commander": "^9.4.1",
         "fast-glob": "^3.2.11",
-        "parse5": "^6.0.1"
+        "parse5": "^6.0.1",
+        "stylelint": "^16.2.0"
     },
     "prettier": {
         "tabWidth": 4,
         "printWidth": 160
     },
     "browserslist": [
-        "last 100 version",
+        "last 15 version",
         "not dead"
     ]
 }
