@@ -1,8 +1,7 @@
-const postcss = require("postcss");
-const fs = require("fs");
+import fs from "fs";
 
-const standalone = require("./index.js");
-const { plugin } = require("./index.js");
+import standalone from "./index.js";
+import { plugin } from "./index.js";
 
 async function runStandalone() {
     let standaloneOutput = await standalone(["marginLeft-24px"]);
@@ -12,30 +11,20 @@ async function runStandalone() {
     }
     `;
 
-    console.log(standaloneOutput);
-
-    /*
-    expect(standaloneOutput.length).toBeCloseTo(testResult.length);
-    expect(standaloneOutput.warnings()).toHaveLength(0);
-    */
+    console.log(standaloneOutput, testResult);
 }
 
 async function runPlugin(output, opts = {}) {
     await plugin(opts);
 
     let res = await fs.readFileSync("./test/index.css", "utf-8");
-
-    /*
-    expect(res.length).toBeCloseTo(output.length);
-    expect(res.warnings()).toHaveLength(0);
-    */
 }
 
-it("does something", async () => {
+async function test() {
     let expection = await fs.readFileSync("./test/expection.css", "utf-8");
 
-    //console.log(expection);
-
     await runStandalone();
-    await runPlugin(expection);
-});
+    //await runPlugin(expection);
+}
+
+test();

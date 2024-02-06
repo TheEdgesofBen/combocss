@@ -1,6 +1,6 @@
 <template>
     <div class="frame" style="min-height: 100vh; height: 100%">
-        <div class="flex c-app-bg min-h-100vh" style="width: 100%" :class="{ blured: $store.state.blurPage }">
+        <div class="flex c-app-bg min-h-100vh" style="width: 100%" :class="{ 'color-blue blured': $store.state.blurPage }">
             <div id="UserMenu"></div>
             <div v-if="showLoadingSpinner" class="flex all-center" style="height: 100vh"></div>
 

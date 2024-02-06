@@ -124,7 +124,7 @@ Initialize ComboCSS with npx to create combo.config.json.
 You can use ComboCSS via import.<br>combocss(classes, opts) has two params and returns translated css as string.<br>Param one must be a Array of combo css classes<br>Param two is an optional config object [See Config](#config)
 
 ```js
-import combocss from "combocss";
+import { combocss } from "combocss";
 
 let res = await combocss(["marginLeft-8px"]);
 

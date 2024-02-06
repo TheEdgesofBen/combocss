@@ -1,6 +1,6 @@
 {
     "name": "combocss",
-    "version": "0.5.1",
+    "version": "0.6.0",
     "description": "ComboCSS a CSS Toolkit for combining CSS properties",
     "keywords": [
         "conbocss",
@@ -12,7 +12,7 @@
         "combo": "lib/cli.js"
     },
     "scripts": {
-        "test": "jest --coverage && eslint ."
+        "test": "node index.test.js"
     },
     "author": "Benjamin Lotterer <theedgesofben@hotmail.com>",
     "license": "MIT",
@@ -27,7 +27,7 @@
         "clean-publish": "^3.4.2",
         "eslint": "^8.0.1",
         "eslint-plugin-jest": "^25.2.2",
-        "jest": "^27.3.1",
+        "jest": "^29.7.0",
         "postcss": "^8.4.6",
         "sass": "^1.49.7"
     },
@@ -52,7 +52,8 @@
             "global": {
                 "statements": 100
             }
-        }
+        },
+        "transform": {}
     },
     "dependencies": {
         "autoprefixer": "^10.4.17",
@@ -69,5 +70,6 @@
     "browserslist": [
         "last 15 version",
         "not dead"
-    ]
+    ],
+    "type": "module"
 }

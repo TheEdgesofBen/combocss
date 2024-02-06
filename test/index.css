@@ -17,6 +17,11 @@
         background: var(--appBg-bg)
     }
 }
+@layer \.\/test\/custom\/colors\.css{
+    .color-blue{
+        color: var(--palette-blue)
+    }
+}
 .textSizeAdjust-100\%{
     text-size-adjust: 100%
 }

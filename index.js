@@ -53,9 +53,14 @@ NiceToHave
 
 */
 
-const standalone = require("./lib/standalone");
-const plugin = require("./lib/plugin");
+import standalone from "./lib/standalone.js";
 
-module.exports = standalone;
+let plugin = null;
 
-module.exports.plugin = plugin;
+if (typeof window !== "object") {
+    let { default: _plugin } = await import("./lib/plugin.js");
+
+    plugin = _plugin;
+}
+
+export { standalone as combocss, plugin };
