@@ -1,14 +1,23 @@
 @layer \.\/test\/custom\/basic\.css, \.\/test\/custom\/colors\.css, \.\/test\/custom\/custom\.css, \.\/test\/custom\/elements\.css;
 @layer \.\/test\/custom\/custom\.css {
     .flex{
+        display: -webkit-box;
+        display: -webkit-flex;
         display: flex
     }
     .all-center{
-        align-items: center;
-        justify-content: center
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+                align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+                justify-content: center
     }
     .column{
-        flex-direction: column
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+                flex-direction: column
     }
 }
 @layer \.\/test\/custom\/elements\.css {
@@ -23,7 +32,10 @@
     }
 }
 .textSizeAdjust-100\%{
-    text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%;
+       -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%
 }
 .marginTop-8px{
     margin-top: 8px
@@ -35,7 +47,8 @@
     background-color: var(--test-2)
 }
 .roundness-32px\:hover:hover{
-    border-radius: 32px
+    -webkit-border-radius: 32px;
+            border-radius: 32px
 }
 .backgroundColor-var\(--testTest\){
     background-color: var(--testTest)
@@ -44,31 +57,15 @@
     background-color: red
 }
 .roundness-0-0-24px-24px{
-    border-radius: 0 0 24px 24px
+    -webkit-border-radius: 0 0 24px 24px;
+            border-radius: 0 0 24px 24px
 }
 .\!height-24px{
     height: 24px !important
 }
 .\!w-calc\(100\%_-_8px\){
+    width: -webkit-calc(100% - 8px) !important;
     width: calc(100% - 8px) !important
-}
-.p-8px{
-    padding: 8px
-}
-.min-h-100vh{
-    min-height: 100vh
-}
-.alignItems-center{
-    align-items: center
-}
-.w-calc\(100\%_-_68px\){
-    width: calc(100% - 68px)
-}
-.w-calc\(100\%_-_328px\){
-    width: calc(100% - 328px)
-}
-.width-100\%{
-    width: 100%
 }
 @media (min-width: 1440px){
     .pc\:p-8px{
@@ -84,4 +81,26 @@
     .pc\:backgroundColor-var\(--test\){
         background-color: var(--test)
     }
+}
+.min-h-100vh{
+    min-height: 100vh
+}
+.alignItems-center{
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center
+}
+.w-calc\(100\%_-_68px\){
+    width: -webkit-calc(100% - 68px);
+    width: calc(100% - 68px)
+}
+.w-calc\(100\%_-_328px\){
+    width: -webkit-calc(100% - 328px);
+    width: calc(100% - 328px)
+}
+.width-100\%{
+    width: 100%
+}
+.p-8px{
+    padding: 8px
 }
