@@ -11,7 +11,7 @@ jobs:
     build:
         defaults:
           run:
-            working-directory: ./browser
+            working-directory: browser
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
@@ -24,7 +24,7 @@ jobs:
     publish-npm:
         defaults:
           run:
-            working-directory: ./browser
+            working-directory: browser
         needs: build
         runs-on: ubuntu-latest
         steps:
