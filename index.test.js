@@ -1,10 +1,11 @@
 import fs from "fs";
 
-import standalone from "./index.js";
-import { plugin } from "./index.js";
+import { combocss } from "./browser/browser.js";
+
+console.log(combocss);
 
 async function runStandalone() {
-    let standaloneOutput = await standalone(["marginLeft-24px"]);
+    let standaloneOutput = await combocss(["marginLeft-24px"]);
     let testResult = `    
     .marginLeft-24px {
         margin-left: 24px
