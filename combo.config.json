@@ -12,5 +12,6 @@
         "pc": "1440px",
         "ultrawide": "1921px"
     },
-    "custom": ["./test/custom/*"]
+    "custom": ["./test/custom/*"],
+    "classes": []
 }
