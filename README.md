@@ -283,3 +283,31 @@ Default `combo.config.json`:
 ComboCSS extracts literal classes from HTML, Vue, JS, TS, JSX, and TSX. It supports static `class="..."`, simple Vue `:class` object/array string literals, JSX `className="..."`, and plain string literals that look like ComboCSS classes.
 
 For highly dynamic class generation, add classes to `classes` in `combo.config.json`.
+
+## Browser and shared core
+
+The browser entry is intentionally thin and imports the same standalone implementation as Node:
+
+```js
+import { combocss } from "combocss/browser";
+```
+
+Use the build command to regenerate the browser entry from shared source when needed:
+
+```bash
+npm run build:browser
+```
+
+The core parser/generator exports are available for advanced integrations:
+
+```js
+import { createCSSClassesData, getClassParts } from "combocss/core";
+```
+
+## Development
+
+Run tests:
+
+```bash
+npm test
+```
