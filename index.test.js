@@ -23,9 +23,12 @@ test("generates important and negative values", async () => {
 });
 
 test("generates value functions with spaces", async () => {
-    const css = await combocss(["width-calc(100%_-_8px)"]);
+    const css = await combocss(["width-calc(100%_-_8px)", "maskImage-linearGradient(to_bottom,_black,_transparent_82%)", "border-1px-solid-var(--cyan)"]);
 
     assert.match(css, /width: calc\(100% - 8px\)/);
+    assert.match(css, /mask-image: linear-gradient\(to bottom, black, transparent 82%\)/);
+    assert.match(css, /border: 1px solid var\(--cyan\)/);
+    assert.doesNotMatch(css, /mask-image: linearGradient|mask-image: linear_gradient|border: .*solid-var/);
 });
 
 test("generates responsive classes", async () => {
@@ -48,6 +51,27 @@ test("generates custom combos and shortcuts", async () => {
     assert.match(css, /margin-left: 16px/);
 });
 
+test("generates raw custom pseudo selectors when base class is used", async () => {
+    const css = await combocss(["app-shell"], {
+        custom: `
+            .app-shell { @combo position-relative; }
+            .app-shell:before { @combo content-'' position-absolute; }
+        `,
+    });
+
+    assert.match(css, /\.app-shell\s*{/);
+    assert.match(css, /\.app-shell:before\s*{/);
+    assert.doesNotMatch(css, /app-shell\\:before:before/);
+    assert.match(css, /content: ''/);
+});
+
+test("generates utility pseudo classes when no custom selector exists", async () => {
+    const css = await combocss(["marginLeft-8px:hover"]);
+
+    assert.match(css, /\.marginLeft-8px\\:hover:hover/);
+    assert.match(css, /margin-left: 8px/);
+});
+
 test("splits only outside groups", () => {
     assert.deepEqual(splitOutsideGroups("backgroundColor-rgba(1,2,3,0.5):hover", ":"), ["backgroundColor-rgba(1,2,3,0.5)", "hover"]);
     assert.deepEqual(splitOutsideGroups("width-calc(100%_-_8px)", "-"), ["width", "calc(100%_-_8px)"]);
@@ -60,6 +84,8 @@ test("parses class parts with pseudo selector groups", () => {
 test("parses declaration parts", () => {
     assert.deepEqual(getDeclarationParts("width-calc(100%_-_8px)"), ["width", "calc(100% - 8px)"]);
     assert.deepEqual(getDeclarationParts("backgroundColor-var(--color-primary)"), ["backgroundColor", "var(--color-primary)"]);
+    assert.deepEqual(getDeclarationParts("maskImage-linearGradient(to_bottom,_black,_transparent_82%)"), ["maskImage", "linear-gradient(to bottom, black, transparent 82%)"]);
+    assert.deepEqual(getDeclarationParts("border-1px-solid-var(--cyan)"), ["border", "1px", "solid", "var(--cyan)"]);
 });
 
 test("extracts Vue static and simple dynamic classes", () => {
