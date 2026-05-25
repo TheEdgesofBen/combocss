@@ -38,6 +38,26 @@ test("generates responsive classes", async () => {
     assert.match(css, /height: 32px/);
 });
 
+test("orders responsive classes from smallest to largest breakpoint", async () => {
+    const css = await combocss(["wide:marginLeft-16px", "marginLeft-8px", "desktop:marginLeft-14px", "tablet:marginLeft-12px"], {
+        breakpoints: {
+            wide: "1440px",
+            tablet: "700px",
+            desktop: "1024px",
+        },
+    });
+
+    const baseIndex = css.indexOf(".marginLeft-8px");
+    const tabletIndex = css.indexOf("min-width: 700px");
+    const desktopIndex = css.indexOf("min-width: 1024px");
+    const wideIndex = css.indexOf("min-width: 1440px");
+
+    assert(baseIndex > -1);
+    assert(tabletIndex > baseIndex);
+    assert(desktopIndex > tabletIndex);
+    assert(wideIndex > desktopIndex);
+});
+
 test("generates custom combos and shortcuts", async () => {
     const css = await combocss(["button-primary", "ml-16px"], {
         custom: `
