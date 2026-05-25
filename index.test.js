@@ -1,31 +1,91 @@
-import fs from "fs";
+import assert from "node:assert/strict";
+import test from "node:test";
+import { combocss } from "./index.js";
+import { getDeclarationParts, getClassParts, splitOutsideGroups } from "./lib/process.js";
+import { extractRawFileClasses } from "./lib/extractors/index.js";
 
-import { combocss } from "./browser/browser.js";
-
-console.log(combocss);
-
-async function runStandalone() {
-    let standaloneOutput = await combocss(["marginLeft-24px"]);
-    let testResult = `    
-    .marginLeft-24px {
-        margin-left: 24px
-    }
-    `;
-
-    console.log(standaloneOutput, testResult);
+function normalize(css) {
+    return css.replace(/\s+/g, " ").trim();
 }
 
-async function runPlugin(output, opts = {}) {
-    await plugin(opts);
+test("generates a basic utility class", async () => {
+    const css = await combocss(["marginLeft-24px"]);
 
-    let res = await fs.readFileSync("./test/index.css", "utf-8");
-}
+    assert.match(css, /\.marginLeft-24px/);
+    assert.match(css, /margin-left: 24px/);
+});
 
-async function test() {
-    let expection = await fs.readFileSync("./test/expection.css", "utf-8");
+test("generates important and negative values", async () => {
+    const css = await combocss(["!height-24px", "-marginTop-8px"]);
 
-    await runStandalone();
-    //await runPlugin(expection);
-}
+    assert.match(css, /height: 24px !important/);
+    assert.match(css, /margin-top: -8px/);
+});
 
-test();
+test("generates value functions with spaces", async () => {
+    const css = await combocss(["width-calc(100%_-_8px)"]);
+
+    assert.match(css, /width: calc\(100% - 8px\)/);
+});
+
+test("generates responsive classes", async () => {
+    const css = await combocss(["tablet:height-32px"], { breakpoints: { tablet: "600px" } });
+
+    assert.match(normalize(css), /@media \(min-width: 600px\)/);
+    assert.match(css, /height: 32px/);
+});
+
+test("generates custom combos and shortcuts", async () => {
+    const css = await combocss(["button-primary", "ml-16px"], {
+        custom: `
+            .button-primary { @combo display-flex backgroundColor-red; }
+            .ml { @shortcut marginLeft; }
+        `,
+    });
+
+    assert.match(css, /display: flex/);
+    assert.match(css, /background-color: red/);
+    assert.match(css, /margin-left: 16px/);
+});
+
+test("splits only outside groups", () => {
+    assert.deepEqual(splitOutsideGroups("backgroundColor-rgba(1,2,3,0.5):hover", ":"), ["backgroundColor-rgba(1,2,3,0.5)", "hover"]);
+    assert.deepEqual(splitOutsideGroups("width-calc(100%_-_8px)", "-"), ["width", "calc(100%_-_8px)"]);
+});
+
+test("parses class parts with pseudo selector groups", () => {
+    assert.deepEqual(getClassParts("pc:backgroundColor-red:has(.test:hover)", { pc: "1440px" }), [["pc"], "backgroundColor-red:has(.test:hover)", []]);
+});
+
+test("parses declaration parts", () => {
+    assert.deepEqual(getDeclarationParts("width-calc(100%_-_8px)"), ["width", "calc(100% - 8px)"]);
+    assert.deepEqual(getDeclarationParts("backgroundColor-var(--color-primary)"), ["backgroundColor", "var(--color-primary)"]);
+});
+
+test("extracts Vue static and simple dynamic classes", () => {
+    const classes = extractRawFileClasses(
+        `<template>
+            <div class="display-flex marginLeft-8px" :class="{ 'backgroundColor-red': active, textColor-blue: valid }"></div>
+            <div :class="['height-24px', condition && 'width-32px']"></div>
+            <div :class="[\`solar-shell-\${body.orbit}\`]"></div>
+        </template>`,
+        "vue",
+        { prefix: [], suffix: [], class: [] }
+    );
+
+    assert(classes.has("display-flex"));
+    assert(classes.has("marginLeft-8px"));
+    assert(classes.has("backgroundColor-red"));
+    assert(classes.has("textColor-blue"));
+    assert(classes.has("height-24px"));
+    assert(classes.has("width-32px"));
+    assert(!classes.has("solar-shell-${body.orbit}"));
+});
+
+test("extracts JS/TS literal classes", () => {
+    const classes = extractRawFileClasses(`const button = "display-flex marginLeft-8px"; <div className="height-24px" />`, "jsx", { prefix: [], suffix: [], class: [] });
+
+    assert(classes.has("display-flex"));
+    assert(classes.has("marginLeft-8px"));
+    assert(classes.has("height-24px"));
+});

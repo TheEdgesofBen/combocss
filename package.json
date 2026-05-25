@@ -2,47 +2,18 @@
     "name": "combocss",
     "version": "0.6.6",
     "description": "ComboCSS a CSS Toolkit for combining CSS properties",
-    "keywords": [
-        "conbocss",
-        "postcss",
-        "css",
-        "postcss-plugin"
-    ],
+    "keywords": ["combocss", "postcss", "css", "postcss-plugin", "atomic-css", "utility-css", "vite"],
     "bin": {
         "combo": "lib/cli.js"
     },
     "scripts": {
-        "test": "node index.test.js"
+        "test": "node --test index.test.js"
     },
     "author": "Benjamin Lotterer <theedgesofben@hotmail.com>",
     "license": "MIT",
     "repository": "theedgesofben/combocss",
     "engines": {
         "node": ">=16.0.0"
-    },
-    "eslintConfig": {
-        "parserOptions": {
-            "ecmaVersion": "latest"
-        },
-        "env": {
-            "node": true,
-            "es6": true
-        },
-        "extends": [
-            "eslint:recommended",
-            "plugin:jest/recommended"
-        ],
-        "rules": {
-            "jest/expect-expect": "off"
-        }
-    },
-    "jest": {
-        "coverageThreshold": {
-            "global": {
-                "statements": 100
-            }
-        },
-        "transform": {}
     },
     "dependencies": {
         "autoprefixer": "^10.4.17",
@@ -66,10 +37,13 @@
         "tabWidth": 4,
         "printWidth": 160
     },
-    "browserslist": [
-        "last 15 version",
-        "not dead"
-    ],
+    "browserslist": ["last 15 version", "not dead"],
     "type": "module",
-    "main": "index.js"
+    "main": "index.js",
+    "exports": {
+        ".": "./index.js",
+        "./plugin": "./lib/plugin.js",
+        "./standalone": "./lib/standalone.js",
+        "./browser": "./browser/browser.js"
+    }
 }

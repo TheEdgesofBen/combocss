@@ -2,6 +2,10 @@
     "input": ["index.html", "src/**/*.{vue,js,ts,jsx,tsx}"],
     "output": "src/index.css",
     "custom": ["custom.css"],
+    "classes": [],
+    "cache": ".combocss",
+    "strict": false,
+    "plugins": [],
     "ignore": {
         "prefix": [],
         "suffix": [],
