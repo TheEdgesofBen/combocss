@@ -23,11 +23,17 @@ test("generates important and negative values", async () => {
 });
 
 test("generates value functions with spaces", async () => {
-    const css = await combocss(["width-calc(100%_-_8px)", "maskImage-linearGradient(to_bottom,_black,_transparent_82%)", "border-1px-solid-var(--cyan)"]);
+    const css = await combocss([
+        "width-calc(100%_-_8px)",
+        "maskImage-linearGradient(to_bottom,_black,_transparent_82%)",
+        "border-1px-solid-var(--cyan)",
+        "fontFamily-{Inter, system-ui, sans-serif}",
+    ]);
 
     assert.match(css, /width: calc\(100% - 8px\)/);
     assert.match(css, /mask-image: linear-gradient\(to bottom, black, transparent 82%\)/);
     assert.match(css, /border: 1px solid var\(--cyan\)/);
+    assert.match(css, /font-family: Inter, system-ui, sans-serif/);
     assert.doesNotMatch(css, /mask-image: linearGradient|mask-image: linear_gradient|border: .*solid-var/);
 });
 
@@ -106,6 +112,7 @@ test("parses declaration parts", () => {
     assert.deepEqual(getDeclarationParts("backgroundColor-var(--color-primary)"), ["backgroundColor", "var(--color-primary)"]);
     assert.deepEqual(getDeclarationParts("maskImage-linearGradient(to_bottom,_black,_transparent_82%)"), ["maskImage", "linear-gradient(to bottom, black, transparent 82%)"]);
     assert.deepEqual(getDeclarationParts("border-1px-solid-var(--cyan)"), ["border", "1px", "solid", "var(--cyan)"]);
+    assert.deepEqual(getDeclarationParts("fontFamily-{Inter, system-ui, sans-serif}"), ["fontFamily", "Inter, system-ui, sans-serif"]);
 });
 
 test("extracts Vue static and simple dynamic classes", () => {
