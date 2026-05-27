@@ -28,13 +28,4 @@ jobs:
             - run: npm ci
             - run: npm run build --if-present
             - run: npm test
-            - run: |
-                  echo "repo=$GITHUB_REPOSITORY"
-                  echo "workflow=$GITHUB_WORKFLOW"
-                  echo "workflow_ref=$GITHUB_WORKFLOW_REF"
-                  echo "event=$GITHUB_EVENT_NAME"
-                  node -v
-                  npm -v
-                  npm whoami || true
-
-            - run: npm publish --loglevel verbose
+            - run: npm publish # Or: npm stage publish
