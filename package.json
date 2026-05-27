@@ -1,8 +1,16 @@
 {
     "name": "combocss",
-    "version": "0.6.6",
+    "version": "0.7.0",
     "description": "ComboCSS a CSS Toolkit for combining CSS properties",
-    "keywords": ["combocss", "postcss", "css", "postcss-plugin", "atomic-css", "utility-css", "vite"],
+    "keywords": [
+        "combocss",
+        "postcss",
+        "css",
+        "postcss-plugin",
+        "atomic-css",
+        "utility-css",
+        "vite"
+    ],
     "bin": {
         "combo": "lib/cli.js"
     },
@@ -14,7 +22,7 @@
     "license": "MIT",
     "repository": "theedgesofben/combocss",
     "engines": {
-        "node": ">=16.0.0"
+        "node": ">=20.0.0"
     },
     "dependencies": {
         "autoprefixer": "^10.4.17",
@@ -39,7 +47,10 @@
         "tabWidth": 4,
         "printWidth": 160
     },
-    "browserslist": ["last 15 version", "not dead"],
+    "browserslist": [
+        "last 15 version",
+        "not dead"
+    ],
     "type": "module",
     "main": "index.js",
     "exports": {
