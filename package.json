@@ -20,7 +20,7 @@
     },
     "author": "Benjamin Lotterer <theedgesofben@hotmail.com>",
     "license": "MIT",
-    "repository": "theedgesofben/combocss",
+    "repository": "TheEdgesofBen/combocss",
     "engines": {
         "node": ">=20.0.0"
     },
