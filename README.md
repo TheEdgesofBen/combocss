@@ -121,8 +121,6 @@ Generates:
 }
 ```
 
-Known hyphenated CSS functions are preserved correctly, including `linearGradient`, `radialGradient`, `conicGradient`, `repeatingLinearGradient`, `repeatingRadialGradient`, `repeatingConicGradient`, `colorMix`, `colorContrast`, `crossFade`, and `imageSet`.
-
 ## Raw values for edge cases
 
 Use braces when a value should be passed through as raw CSS:
@@ -476,23 +474,8 @@ The browser entry is intentionally thin and imports the same standalone implemen
 import { combocss } from "combocss/browser";
 ```
 
-Use the build command to regenerate the browser entry from shared source when needed:
-
-```bash
-npm run build:browser
-```
-
 The core parser/generator exports are available for advanced integrations:
 
 ```js
 import { createCSSClassesData, getClassParts } from "combocss/core";
 ```
-
-Package exports are intentionally limited to:
-
-- `combocss`
-- `combocss/standalone`
-- `combocss/core`
-- `combocss/browser`
-
-`combocss/plugin` and `combocss/package.json` are not exported.

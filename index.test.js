@@ -77,6 +77,17 @@ test("generates custom combos and shortcuts", async () => {
     assert.match(css, /margin-left: 16px/);
 });
 
+test("safelisted classes resolve custom combos before generic utilities", async () => {
+    const css = await combocss(["button-primary"], {
+        custom: `.button-primary { @combo display-flex backgroundColor-red; }`,
+    });
+
+    assert.match(css, /\.button-primary\s*{/);
+    assert.match(css, /display: flex/);
+    assert.match(css, /background-color: red/);
+    assert.doesNotMatch(css, /button-primary\s*{\s*button: primary/);
+});
+
 test("generates raw custom pseudo selectors when base class is used", async () => {
     const css = await combocss(["app-shell"], {
         custom: `
@@ -89,6 +100,34 @@ test("generates raw custom pseudo selectors when base class is used", async () =
     assert.match(css, /\.app-shell:before\s*{/);
     assert.doesNotMatch(css, /app-shell\\:before:before/);
     assert.match(css, /content: ''/);
+});
+
+test("generates custom combo classes nested in media at-rules", async () => {
+    const css = await combocss(["media-card"], {
+        custom: `
+            @media (min-width: 900px) {
+                .media-card { @combo display-flex; }
+            }
+        `,
+    });
+
+    assert.match(css, /@media \(min-width: 900px\)/);
+    assert.match(css, /\.media-card\s*{/);
+    assert.match(css, /display: flex/);
+});
+
+test("generates top-level and media variants for the same custom combo class", async () => {
+    const css = await combocss(["media-card"], {
+        custom: `
+            .media-card { @combo display-block; }
+            @media (min-width: 900px) {
+                .media-card { @combo display-flex; }
+            }
+        `,
+    });
+
+    assert.match(css, /\.media-card\s*{\n\s*display: block/);
+    assert.match(css, /@media \(min-width: 900px\)\s*{\n\s*\.media-card\s*{\n\s*display: flex/);
 });
 
 test("generates utility pseudo classes when no custom selector exists", async () => {
