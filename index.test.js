@@ -117,17 +117,28 @@ test("generates custom combo classes nested in media at-rules", async () => {
 });
 
 test("generates top-level and media variants for the same custom combo class", async () => {
-    const css = await combocss(["media-card"], {
-        custom: `
-            .media-card { @combo display-block; }
-            @media (min-width: 900px) {
-                .media-card { @combo display-flex; }
-            }
-        `,
-    });
+    const warnings = [];
+    const originalWarn = console.warn;
+    console.warn = (message) => warnings.push(message);
 
-    assert.match(css, /\.media-card\s*{\n\s*display: block/);
-    assert.match(css, /@media \(min-width: 900px\)\s*{\n\s*\.media-card\s*{\n\s*display: flex/);
+    try {
+        const css = await combocss(["media-card"], {
+            custom: `
+                .media-card { @combo display-block; }
+                @media (min-width: 900px) {
+                    .media-card { @combo display-flex; }
+                }
+            `,
+        });
+
+        assert.match(css, /\.media-card\s*{\n\s*display: block/);
+        assert.match(css, /@media \(min-width: 900px\)\s*{\n\s*\.media-card\s*{\n\s*display: flex/);
+        assert.equal((css.match(/display: block/g) || []).length, 1);
+        assert.equal((css.match(/display: flex/g) || []).length, 1);
+        assert.equal(warnings.filter((message) => String(message).includes("Circular ComboCSS custom class chain detected")).length, 0);
+    } finally {
+        console.warn = originalWarn;
+    }
 });
 
 test("generates utility pseudo classes when no custom selector exists", async () => {
